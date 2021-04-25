@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "39VjxKiZHSh3wC37TA+YQc+8jiNdTisgUZXiqhWUbkBvVQesSAVqNeBtAYrCEfdwiDF5CIMrIa2l3awRRtbVgA==",
+  "success": true,
+  "projectFilePath": "F:\\Учёба\\4 курс\\Диплом\\CorporaStorage\\ADWISER service\\ADWISER service\\ADWISER service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adugeen\\.nuget\\packages\\mongodb.bson\\2.12.2\\mongodb.bson.2.12.2.nupkg.sha512",
+    "C:\\Users\\adugeen\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\adugeen\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

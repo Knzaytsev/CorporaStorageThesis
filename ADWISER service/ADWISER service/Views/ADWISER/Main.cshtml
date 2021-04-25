@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Корпуса</title>
+</head>
+<body>
+    <div><p><a href="CreateDocument">Добавить корпус</a></p></div>
+    <div>
+        <h3>Корпуса</h3>
+        <table>
+            <tr>
+                <td><p>Название</p></td>
+                <td><p>Автор</p></td>
+                <td><p>Дата</p></td>
+                <td><p>Количество текстов</p></td>
+            </tr>
+            @foreach (var b in ViewBag.Corpora as List<CorpusModel>)
+            {
+                <tr>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Author</p></td>
+                    <td><p>@b.Date</p></td>
+                    <td><p>@b.Documents.Count()</p></td>
+                    <td><p><a href="AddText/@b.Id">Добавить текст</a></p></td>
+                    <td><p><a href="CorpusView/@b.Id">Посмотреть корпус</a></p></td>
+                    <td><p><a href="DeleteCorpus/@b.Id">Удалить</a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

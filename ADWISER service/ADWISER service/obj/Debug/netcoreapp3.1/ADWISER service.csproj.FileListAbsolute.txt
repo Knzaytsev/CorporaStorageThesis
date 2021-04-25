@@ -1,0 +1,45 @@
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\appsettings.json
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.exe
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.deps.json
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.runtimeconfig.json
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.runtimeconfig.dev.json
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.pdb
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.Views.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.Views.pdb
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.csprojAssemblyReference.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.AssemblyInfoInputs.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.AssemblyInfo.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.csproj.CoreCompileInputs.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.MvcApplicationPartsAssemblyInfo.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.RazorAssemblyInfo.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.RazorAssemblyInfo.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\staticwebassets\ADWISER service.StaticWebAssets.Manifest.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\staticwebassets\ADWISER service.StaticWebAssets.xml
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\scopedcss\bundle\ADWISER service.styles.css
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.TagHelpers.input.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.TagHelpers.output.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.RazorCoreGenerate.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.RazorTargetAssemblyInfo.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.RazorTargetAssemblyInfo.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.Views.pdb
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.csproj.CopyComplete
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.pdb
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.genruntimeconfig.cache
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\ADWISER\Main.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\ADWISER\CreateDocument.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\ADWISER\AddText.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\ADWISER\CorpusView.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\ADWISER\EditTextFile.cshtml.g.cs
