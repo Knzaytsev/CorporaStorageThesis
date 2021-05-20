@@ -53,7 +53,7 @@ namespace ADWISER_service
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action}");
+                    pattern: "ADWISER/{controller}/{action}");
             });
         }
     }

@@ -55,8 +55,8 @@ namespace CorporaStorage.Services
 
         public async Task<string> RemoveText(string collectionName, string corpusId, string textId, string set)
         {
-            var result = await Context.RemoveTextFromCorpus(collectionName, set, corpusId, textId) as List<BsonDocument>;
-            return result.First().ToJson();
+            var result = await Context.RemoveTextFromCorpus(collectionName, set, corpusId, textId);// as List<BsonDocument>;
+            return result.ToJson();//result.First().ToJson();
         }
 
         public async Task<string> UpdateTextInCorpus(string collectionName, string corpusId, string textId, string set, string field, string text)

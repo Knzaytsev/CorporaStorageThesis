@@ -32,3 +32,10 @@ F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStora
 F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
 F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
 F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\obj\Debug\netcoreapp3.1\CorporaStorage.MvcApplicationPartsAssemblyInfo.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\bin\Debug\netcoreapp3.1\CorporaStorage.xml
+F:\Учёба\4 курс\Диплом\CorporaStorage\CorporaStorage\CorporaStorage\obj\Debug\netcoreapp3.1\CorporaStorage.xml

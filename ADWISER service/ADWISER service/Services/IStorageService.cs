@@ -1,4 +1,5 @@
 ﻿using ADWISER_service.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,14 @@ namespace ADWISER_service.Services
 
         public Task<CorpusModel> AddCorpusToCollection(string author, string name);
 
-        public Task<TextFileModel> AddTextToCorpus(string id, string set, InputTextFileModel textModel/*string name, string source, string annotation*/);
+        public Task</*TextFileModel*/int> AddTextToCorpus(string id, string set, InputTextFileModel textModel);
 
         public Task<List<CorpusModel>> GetCorporaFromStorage();
 
-        public Task<CorpusModel> RemoveTextFromCorpus(string set, string corpusId, string textId);
+        public Task</*CorpusModel*/int> RemoveTextFromCorpus(string set, string corpusId, string textId);
 
-        public Task<TextFileModel> EditTextCorpus(string corpusId, string textId, string set, string field, string text);
+        public Task</*TextFileModel*/int> EditTextCorpus(string corpusId, string textId, string set, string field, string text);
+
+        public Task<int> RemoveCorpusFromCollection(string corpusId);
     }
 }

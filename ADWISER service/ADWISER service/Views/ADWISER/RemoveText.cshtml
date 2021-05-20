@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Редактирование</title>
+</head>
+<body>
+    <div>
+        <h3>Форма редактирования текста</h3>
+        <form method="post" action="">
+            <table>
+                <tr>
+                    <td><p>Введите текст </p></td>
+                    <td><p><label name="Source">@ViewBag.Text.Source</label></p></td>
+                </tr>
+                <tr>
+                    <td><p>Введите аннотацию</p></td>
+                    <td><p><label name="Annotation">@ViewBag.Text.Annotation</label></p></td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+    <div><p><a href="/ADWISER/CorpusView/@ViewBag.CorpusId">Назад</a></p></div>
+</body>
+</html>

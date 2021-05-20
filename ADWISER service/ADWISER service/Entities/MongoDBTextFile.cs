@@ -17,8 +17,14 @@ namespace ADWISER_service.Models
 
         public string Source { get; set; }
 
+        public string TypeText { get; set; }
+
         public DateTime Date { get; set; }
 
         public string Annotation { get; set; }
+
+        public string Commentary { get; set; }
+
+        public uint Mark { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,33 @@ namespace CorporaStorage.Entities
 {
     public class MongoDBContext : IDBContext
     {
-        private string ConnectionString { get => "mongodb+srv://adugeen:adugeen@cluster0.xbrqy.mongodb.net/test?retryWrites=true&w=majority"; }
+        //"mongodb+srv//adugeen:adugeen@cluster0.xbrqy.mongodb.net/test?retryWrites=true&w=majority"
+        private string ConnectionString { get => $"{Type}://{Username}:{Password}@{Server}/{DatabaseName}"; }
 
-        private string DatabaseName { get => "test"; }
+        private string Type { get; }
+
+        private string Username { get; }
+
+        private string Password { get; }
+
+        private string Server { get; }
+
+        private string DatabaseName { get; }
 
         private MongoClient Client { get; set; }
 
         private IMongoDatabase Database { get; }
 
-        public MongoDBContext()
+        private IConfiguration Configuration { get; }
+
+        public MongoDBContext(IConfiguration configuration)
         {
-            var credential = MongoCredential.CreateCredential("admin", "adugeen", "adugeen");
+            Configuration = configuration;
+            Type = Configuration["ConnectionString:Type"];
+            Username = Configuration["ConnectionString:Username"];
+            Password = Configuration["ConnectionString:Password"];
+            Server = Configuration["ConnectionString:Server"];
+            DatabaseName = Configuration["ConnectionString:DatabaseName"];
             Client = new MongoClient(ConnectionString);
             Database = Client.GetDatabase(DatabaseName);
         }
@@ -42,9 +59,8 @@ namespace CorporaStorage.Entities
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(id));
             var update = Builders<BsonDocument>.Update.AddToSet(set, mongoText);
 
-            var result = await collection.FindOneAndUpdateAsync(filter, update);
-            //return GetCorpusById(collectionName, id);
-            return result;
+            var result = await collection.UpdateOneAsync(filter, update);
+            return result.ModifiedCount;
         }
 
         public async Task<object> GetCorpusFromCollection(string collectionName)
@@ -57,18 +73,18 @@ namespace CorporaStorage.Entities
         {
             var collection = Database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Eq(attribute, ObjectId.Parse(criteria));
-            await collection.DeleteOneAsync(filter);
-            return collection.Find(new BsonDocument()).ToList();
+            var result = await collection.DeleteOneAsync(filter);
+            return result.DeletedCount;
         }
 
         public async Task<object> UpdateCorpusInCollection(string collectionName, object corpus, string id, string attribute)
         {
             var collection = Database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(id));
-            var document = corpus.ToString();//MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(corpus.ToString());
+            var document = corpus.ToString();
             var update = Builders<BsonDocument>.Update.Set(attribute, document);
-            await collection.UpdateOneAsync(filter, update);
-            return (await collection.FindAsync(filter)).ToJson();
+            var result = await collection.UpdateOneAsync(filter, update);
+            return result.ModifiedCount;
         }
 
         public async Task<object> GetCorpusById(string collectionName, string id)
@@ -84,23 +100,21 @@ namespace CorporaStorage.Entities
             var collection = Database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(corpusId));
             var update = Builders<BsonDocument>.Update.PullFilter(set, Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(textId)));
-            await collection.UpdateOneAsync(filter, update);
-            return await GetCorpusById(collectionName, corpusId);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return result.MatchedCount;
         }
 
         public async Task<object> UpdateTextInCorpus(string collectionName, string corpusId, string textId, string set, string field, string text)
         {
             var collection = Database.GetCollection<BsonDocument>(collectionName);
-            //var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(corpusId));
-            //var update = Builders<BsonDocument>.Update.Set(set, Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(textId)));
 
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(corpusId))
-                & Builders<BsonDocument>.Filter.Eq($"{set}._id", ObjectId.Parse(textId));/*, Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(textId)));*/
+                & Builders<BsonDocument>.Filter.Eq($"{set}._id", ObjectId.Parse(textId));
 
             var update = Builders<BsonDocument>.Update.Set($"{set}.$.{field}", text);
 
             var result = await collection.UpdateOneAsync(filter, update);
-            return result.ModifiedCount;
+            return result.MatchedCount;
         }
     }
 }

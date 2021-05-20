@@ -12,6 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace CorporaStorage
 {
@@ -31,6 +34,21 @@ namespace CorporaStorage
             services.AddScoped<IStorageService, MongoDBService>();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v0.0", new OpenApiInfo
+                {
+                    Version = "v0.0",
+                    Title = "Corpora Storage service API",
+                });
+
+                // Set the comments path for the Swagger JSON and UI.
+                // Source: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio#xml-comments
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +60,13 @@ namespace CorporaStorage
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint($"/swagger/v0.0/swagger.json", "Corpora Storage Service service API");
+            });
 
             app.UseRouting();
 

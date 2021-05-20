@@ -1,4 +1,6 @@
 ﻿using ADWISER_service.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
 using System;
@@ -12,9 +14,18 @@ namespace ADWISER_service.Services
 {
     public class MongoDBService : IStorageService
     {
-        private string URI { get => "https://localhost:44301/Storage/"; }
+        private string URI { get => Configuration["StorageServiceURI"]; }
 
-        private string CollectionName { get => "test"; }
+        private string CollectionName { get => Configuration["CollectionName"]; }
+
+        private HttpClient Client { get => new HttpClient(); }
+
+        private IConfiguration Configuration { get; }
+
+        public MongoDBService(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
 
         public async Task<List<TextFileModel>> GetCorpusById(string id)
         {
@@ -38,8 +49,6 @@ namespace ADWISER_service.Services
 
         public async Task<CorpusModel> AddCorpusToCollection(string author, string name)
         {
-            HttpClient client = new HttpClient();
-
             string uri = URI + $"collections/{CollectionName}/documents";
 
             var content = JsonConvert.SerializeObject(new InputCorpusModel
@@ -55,11 +64,20 @@ namespace ADWISER_service.Services
 
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage response = await client.PostAsync(uri, byteContent);
+            HttpResponseMessage response = await Client.PostAsync(uri, byteContent);
 
             string contentString = await response.Content.ReadAsStringAsync();
 
-            var corpus = BsonSerializer.Deserialize<MongoDBCorpus>(contentString);
+            MongoDBCorpus corpus;
+            try
+            {
+                corpus = BsonSerializer.Deserialize<MongoDBCorpus>(contentString);
+            }
+            catch
+            {
+                throw new Exception("Unable to deserialize object.");
+            }
+            
             return new CorpusModel
             {
                 Id = corpus.Id,
@@ -70,10 +88,8 @@ namespace ADWISER_service.Services
             };
         }
 
-        public async Task<TextFileModel> AddTextToCorpus(string id, string set, InputTextFileModel textFile/*string name, string source, string annotation*/)
+        public async Task<int> AddTextToCorpus(string id, string set, InputTextFileModel textFile)
         {
-            HttpClient client = new HttpClient();
-
             string uri = URI + $"collections/{CollectionName}/documents/{id}?set={set}";
 
             var content = JsonConvert.SerializeObject(textFile);
@@ -83,36 +99,32 @@ namespace ADWISER_service.Services
 
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage response = await client.PostAsync(uri, byteContent);
+            HttpResponseMessage response = await Client.PostAsync(uri, byteContent);
 
             string contentString = await response.Content.ReadAsStringAsync();
 
-            //var corpus = BsonSerializer.Deserialize<MongoDBCorpus>(contentString);
-            var corpus = await GetCorpusById(id);
-            var text = corpus.Last();
-            //var text = corpus.Documents.First();
-            //var text = BsonSerializer.Deserialize<MongoDBTextFile>(contentString);
-            return new TextFileModel
-            {
-                Id = text.Id,
-                Annotation = text.Annotation,
-                Date = text.Date,
-                Name = text.Name,
-                Source = text.Source,
-            };
+            var result = BsonSerializer.Deserialize<int>(contentString);
+
+            return result;
         }
 
         public async Task<List<CorpusModel>> GetCorporaFromStorage()
         {
-            HttpClient client = new HttpClient();
-
             string uri = URI + $"collections/{CollectionName}";
 
-            HttpResponseMessage response = await client.GetAsync(uri);
+            HttpResponseMessage response = await Client.GetAsync(uri);
 
             string contentString = await response.Content.ReadAsStringAsync();
 
-            var corpora = BsonSerializer.Deserialize<List<MongoDBCorpus>>(contentString);
+            List<MongoDBCorpus> corpora;
+            try
+            {
+                corpora = BsonSerializer.Deserialize<List<MongoDBCorpus>>(contentString);
+            }
+            catch
+            {
+                throw new Exception("Unable to deserialize one of the element.");
+            }
             return corpora.Select(x => new CorpusModel
             {
                 Id = x.Id,
@@ -130,38 +142,20 @@ namespace ADWISER_service.Services
             }).ToList();
         }
 
-        public async Task<CorpusModel> RemoveTextFromCorpus(string set, string corpusId, string textId)
+        public async Task<int> RemoveTextFromCorpus(string set, string corpusId, string textId)
         {
-            HttpClient client = new HttpClient();
-
             string uri = URI + $"collections/{CollectionName}/documents/{corpusId}/{textId}?set={set}";
 
-            HttpResponseMessage response = await client.DeleteAsync(uri);
+            HttpResponseMessage response = await Client.DeleteAsync(uri);
 
             string contentString = await response.Content.ReadAsStringAsync();
 
-            var corpus = BsonSerializer.Deserialize<MongoDBCorpus>(contentString);
-            return new CorpusModel
-            {
-                Author = corpus.Author,
-                Date = corpus.Date,
-                Documents = corpus.Documents.Select(x => new TextFileModel
-                {
-                    Annotation = x.Annotation,
-                    Date = x.Date,
-                    Id = x.Id,
-                    Name = x.Name,
-                    Source = x.Source,
-                }),
-                Id = corpus.Id,
-                Name = corpus.Name,
-            };
+            var result = BsonSerializer.Deserialize<int>(contentString);
+            return result;
         }
 
-        public async Task<TextFileModel> EditTextCorpus(string corpusId, string textId, string set, string field, string text)
+        public async Task<int> EditTextCorpus(string corpusId, string textId, string set, string field, string text)
         {
-            HttpClient client = new HttpClient();
-
             string uri = URI + $"collections/{CollectionName}/documents/{corpusId}/{textId}?set={set}&field={field}";
 
             var content = JsonConvert.SerializeObject(text);
@@ -171,27 +165,49 @@ namespace ADWISER_service.Services
 
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage response = await client.PatchAsync(uri, byteContent);
+            HttpResponseMessage response = await Client.PatchAsync(uri, byteContent);
 
             string contentString = await response.Content.ReadAsStringAsync();
 
-            return new TextFileModel();
-            /*var corpus = BsonSerializer.Deserialize<>(contentString);
-            return new CorpusModel
-            {
-                Author = corpus.Author,
-                Date = corpus.Date,
-                Documents = corpus.Documents.Select(x => new TextFileModel
-                {
-                    Annotation = x.Annotation,
-                    Date = x.Date,
-                    Id = x.Id,
-                    Name = x.Name,
-                    Source = x.Source,
-                }),
-                Id = corpus.Id,
-                Name = corpus.Name,
-            };*/
+            var result = BsonSerializer.Deserialize<int>(contentString);
+
+            return result;
+        }
+
+        public async Task<int> RemoveCorpusFromCollection(string corpusId)
+        {
+            string uri = URI + $"collections/{CollectionName}?attribute=_id&criteria={corpusId}";
+
+            HttpResponseMessage response = await Client.DeleteAsync(uri);
+
+            string contentString = await response.Content.ReadAsStringAsync();
+
+            var result = BsonSerializer.Deserialize<int>(contentString);
+
+            return result;
+        }
+
+        public async Task<int> MarkText(string corpusId, uint mark)
+        {
+            var texts = await GetCorpusById(corpusId);
+            var text = texts.Last();
+
+            var uri = URI + $"collections/{CollectionName}/documents/{text.Id}?set=Documents&field=Mark";
+
+            var content = JsonConvert.SerializeObject(mark);
+
+            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            var byteContent = new ByteArrayContent(buffer);
+
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            HttpResponseMessage response = await Client.PatchAsync(uri, byteContent);
+
+            string contentString = await response.Content.ReadAsStringAsync();
+
+            var result = BsonSerializer.Deserialize<int>(contentString);
+
+            return result;
         }
     }
 }

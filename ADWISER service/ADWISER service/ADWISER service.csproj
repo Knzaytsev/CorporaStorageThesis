@@ -3,9 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ADWISER_service</RootNamespace>
+    <EnableAppOffline>true</EnableAppOffline>
+    <EnableMSDeployAppOffline>true</EnableMSDeployAppOffline>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="MongoDB.Bson" Version="2.12.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
