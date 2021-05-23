@@ -122,3 +122,13 @@ F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER ser
 F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Corpus\Details.cshtml.g.cs
 F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Corpus\Create.cshtml.g.cs
 F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\Razor\Views\Corpus\Delete.cshtml.g.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.MvcApplicationPartsAssemblyInfo.cs
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\obj\Debug\netcoreapp3.1\ADWISER service.xml
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\ADWISER service.xml
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Учёба\4 курс\Диплом\CorporaStorage\ADWISER service\ADWISER service\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll

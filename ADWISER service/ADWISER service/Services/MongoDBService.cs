@@ -186,28 +186,5 @@ namespace ADWISER_service.Services
 
             return result;
         }
-
-        public async Task<int> MarkText(string corpusId, uint mark)
-        {
-            var texts = await GetCorpusById(corpusId);
-            var text = texts.Last();
-
-            var uri = URI + $"collections/{CollectionName}/documents/{text.Id}?set=Documents&field=Mark";
-
-            var content = JsonConvert.SerializeObject(mark);
-
-            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
-            var byteContent = new ByteArrayContent(buffer);
-
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            HttpResponseMessage response = await Client.PatchAsync(uri, byteContent);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-
-            var result = BsonSerializer.Deserialize<int>(contentString);
-
-            return result;
-        }
     }
 }
