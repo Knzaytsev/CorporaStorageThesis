@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ADWISER_service.Controllers
@@ -211,6 +212,48 @@ namespace ADWISER_service.Controllers
             try
             {
                 return (await Service.GetCorpusById(CorpusId)).SingleOrDefault(x => x.Id == textId);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
+
+        /// <summary>
+        /// Загружает файл из формы.
+        /// </summary>
+        /// <param name="corpusId">Идентификатор документа.</param>
+        /// <param name="file">Загружаемый файл.</param>
+        /// <returns>Возвращает только что загруженную версию.</returns>
+        /// <response code="200">Файл успешно загружен.</response>
+        /// <response code="400">В процессе загружки возникли проблемы.</response>
+        [HttpPost]
+        [Route("upload")]
+        public async Task<ActionResult<TextFileModel>> UploadVersionFromFile([FromRoute] string corpusId, IFormFile file)
+        {
+            if (file != null)
+            {
+                string fileName = System.IO.Path.GetFileName(file.FileName);
+
+                var stream = file.OpenReadStream();
+                var buffer = new byte[file.Length];
+                stream.Read(buffer);
+                var result = Encoding.UTF8.GetString(buffer);
+                var model = new InputTextFileModel
+                {
+                    Name = fileName,
+                    Source = result,
+                    Annotation = ""
+                };
+                var response = await Service.AddTextToCorpus(corpusId, "Documents", model);
+                if (response == 0)
+                {
+                    return StatusCode(400);
+                }
+            }
+            try
+            {
+                return (await Service.GetCorpusById(corpusId)).Last();
             }
             catch
             {

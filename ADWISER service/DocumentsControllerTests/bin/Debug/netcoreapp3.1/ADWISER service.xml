@@ -122,5 +122,15 @@
             <response code="200">Аннотация была добавлена успешно.</response>
             <response code="400">В процессе добавления возникли проблемы.</response>
         </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.UploadVersionFromFile(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Загружает файл из формы.
+            </summary>
+            <param name="corpusId">Идентификатор документа.</param>
+            <param name="file">Загружаемый файл.</param>
+            <returns>Возвращает только что загруженную версию.</returns>
+            <response code="200">Файл успешно загружен.</response>
+            <response code="400">В процессе загружки возникли проблемы.</response>
+        </member>
     </members>
 </doc>

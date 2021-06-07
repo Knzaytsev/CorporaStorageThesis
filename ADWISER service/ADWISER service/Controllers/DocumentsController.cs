@@ -128,7 +128,6 @@ namespace ADWISER_service.Controllers
             {
                 return StatusCode(400);
             }
-            
         }
     }
 }
