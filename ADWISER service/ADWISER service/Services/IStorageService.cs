@@ -13,13 +13,13 @@ namespace ADWISER_service.Services
 
         public Task<CorpusModel> AddCorpusToCollection(string author, string name);
 
-        public Task</*TextFileModel*/int> AddTextToCorpus(string id, string set, InputTextFileModel textModel);
+        public Task<int> AddTextToCorpus(string id, string set, InputTextFileModel textModel);
 
         public Task<List<CorpusModel>> GetCorporaFromStorage();
 
-        public Task</*CorpusModel*/int> RemoveTextFromCorpus(string set, string corpusId, string textId);
+        public Task<int> RemoveTextFromCorpus(string set, string corpusId, string textId);
 
-        public Task</*TextFileModel*/int> EditTextCorpus(string corpusId, string textId, string set, string field, string text);
+        public Task<int> EditTextCorpus(string corpusId, string textId, string set, string field, string text);
 
         public Task<int> RemoveCorpusFromCollection(string corpusId);
     }

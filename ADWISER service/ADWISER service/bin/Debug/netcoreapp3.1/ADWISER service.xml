@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADWISER service</name>
+    </assembly>
+    <members>
+        <member name="M:ADWISER_service.Controllers.DocumentsController.CreateDocument(System.String,System.String)">
+            <summary>
+            Создаёт документ с версиями текстов.
+            </summary>
+            <param name="Name">Название документа.</param>
+            <param name="Author">Логин создателя документа.</param>
+            <returns>Возвращает только что созданный документ.</returns>
+            <response code="200">Документ успешно создан.</response>
+            <response code="400">В процессе создания возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.DocumentsController.GetDocumentVersions(System.String)">
+            <summary>
+            Получает версии документа.
+            </summary>
+            <param name="id">Идентификатор документа.</param>
+            <returns>Возвращает список версий.</returns>
+            <response code="200">Версии были получены успешно.</response>
+            <response code="400">В процессе получения возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.DocumentsController.GetDocuments">
+            <summary>
+            Получает все документы в системе.
+            </summary>
+            <returns>Возвращает список документов.</returns>
+            <response code="200">Список был получен успешно.</response>
+            <response code="400">В процессе получения возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.DocumentsController.GetDocumentsByUser(System.String)">
+            <summary>
+            Получает документы конкретного пользователя.
+            </summary>
+            <param name="User">Логин пользователя.</param>
+            <returns>Возвращает список документов пользователя.</returns>
+            <response code="200">Список был получен успешно.</response>
+            <response code="400">В процессе получения возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.DocumentsController.DeleteDocument(System.String)">
+            <summary>
+            Удаляет документ.
+            </summary>
+            <param name="id">Идентификатор документа.</param>
+            <returns>Возвращает список документов без удалённого документа.</returns>
+            <response code="200">Документ был удалён успешно.</response>
+            <response code="400">В процессе удаления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.EditVersion(System.String,System.String,ADWISER_service.Models.InputTextFileModel)">
+            <summary>
+            Редактирует версию документа.
+            </summary>
+            <param name="corpusId">Идентификатор документа.</param>
+            <param name="textId">Идентификатор версии.</param>
+            <param name="model">Модель входных данных версии.</param>
+            <returns>Возвращает отредактированную версию.</returns>
+            <response code="200">Версия была отредактирована успешно.</response>
+            <response code="400">В процессе редактирования возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.AddVersion(System.String,ADWISER_service.Models.InputTextFileModel)">
+            <summary>
+            Добавляет версию документа.
+            </summary>
+            <param name="CorpusId">Идентификатор документа.</param>
+            <param name="text">Модель входных данных версии.</param>
+            <returns>Возвращает добавленную модель данных.</returns>
+            <response code="200">Версия была добавлена успешна.</response>
+            <response code="400">В процессе добавления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.RemoveVersion(System.String,System.String)">
+            <summary>
+            Удаляет версию документа.
+            </summary>
+            <param name="corpusId">Идентификатор документа.</param>
+            <param name="textId">Идентификатор версии.</param>
+            <returns>Возрващает список версий без учёта удалённой.</returns>
+            <response code="200">Версия была удалена успешно.</response>
+            <response code="400">В процессе удаления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.MarkTask(System.String,System.String,System.Int32)">
+            <summary>
+            Ставит оценку заданию.
+            </summary>
+            <param name="CorpusId">Идентификатор документа.</param>
+            <param name="textId">Идентификатор текста.</param>
+            <param name="mark">Оценка тексту.</param>
+            <returns>Возвращает версию с поставленной оценкой.</returns>
+            <response code="200">Оценка была добавлена успешно.</response>
+            <response code="400">В процессе добавления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.GetLastVersion(System.String)">
+            <summary>
+            Получает последнюю версию документа.
+            </summary>
+            <param name="CorpusId">Идентификатор документа.</param>
+            <returns>Возвращает последнюю версию документа.</returns>
+            <response code="200">Версия была получена успешно.</response>
+            <response code="400">В процессе получения возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.AddCommentary(System.String,System.String,System.String)">
+            <summary>
+            Добавляет комментарий к версии.
+            </summary>
+            <param name="CorpusId">Идентификатор документа.</param>
+            <param name="textId">Идентификатор версии.</param>
+            <param name="commentary">Добавляемый комментарий.</param>
+            <returns>Возвращает версию с добавленным комментарием.</returns>
+            <response code="200">Комментарий был добавлен успешно.</response>
+            <response code="400">В процессе добавления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.ChangeAnnotation(System.String,System.String,System.String)">
+            <summary>
+            Добавляет текст аннотации к версии.
+            </summary>
+            <param name="CorpusId">Идентификатор документа.</param>
+            <param name="textId">Идентификатор версии.</param>
+            <param name="annotation">Текст аннотации.</param>
+            <returns>Возвращает версию с добавленной аннотацией.</returns>
+            <response code="200">Аннотация была добавлена успешно.</response>
+            <response code="400">В процессе добавления возникли проблемы.</response>
+        </member>
+        <member name="M:ADWISER_service.Controllers.VersionsController.UploadVersionFromFile(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Загружает файл из формы.
+            </summary>
+            <param name="corpusId">Идентификатор документа.</param>
+            <param name="file">Загружаемый файл.</param>
+            <returns>Возвращает только что загруженную версию.</returns>
+            <response code="200">Файл успешно загружен.</response>
+            <response code="400">В процессе загружки возникли проблемы.</response>
+        </member>
+    </members>
+</doc>

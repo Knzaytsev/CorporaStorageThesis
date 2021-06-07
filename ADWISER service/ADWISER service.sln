@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADWISER service", "ADWISER service\ADWISER service.csproj", "{C3C6E3DC-66B2-4AD6-8353-54218BC6630E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADWISER service", "ADWISER service\ADWISER service.csproj", "{C3C6E3DC-66B2-4AD6-8353-54218BC6630E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentsControllerTests", "DocumentsControllerTests\DocumentsControllerTests.csproj", "{DB2541B7-4FD2-4443-96C7-815E8A2918B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C3C6E3DC-66B2-4AD6-8353-54218BC6630E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3C6E3DC-66B2-4AD6-8353-54218BC6630E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3C6E3DC-66B2-4AD6-8353-54218BC6630E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2541B7-4FD2-4443-96C7-815E8A2918B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2541B7-4FD2-4443-96C7-815E8A2918B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2541B7-4FD2-4443-96C7-815E8A2918B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2541B7-4FD2-4443-96C7-815E8A2918B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

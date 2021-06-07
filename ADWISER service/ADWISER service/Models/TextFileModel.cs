@@ -16,5 +16,9 @@ namespace ADWISER_service.Models
         public DateTime Date { get; set; }
 
         public string Annotation { get; set; }
+
+        public int Mark { get; set; }
+
+        public string Commentary { get; set; }
     }
 }
